@@ -19,10 +19,10 @@ public class CategoriaResource {
 	
 	@RequestMapping(value="/{id}", method=RequestMethod.GET)
 	public ResponseEntity<?> procurar(@PathVariable Integer id) {
-		
-		Categoria obj = service.procurar(id);
-		return ResponseEntity.ok(obj);
-		
+			Categoria obj = service.procurar(id);
+			return ResponseEntity.ok().body(obj);
 	}
+	
+	
 	
 }
