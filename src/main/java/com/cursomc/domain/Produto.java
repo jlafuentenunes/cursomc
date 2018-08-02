@@ -23,7 +23,7 @@ public class Produto implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer Id;
 	private String nome;
-	private Double preço;
+	private Double preco;
 	
 	
 	//Associação entre Produto e categorias
@@ -31,7 +31,7 @@ public class Produto implements Serializable{
 	@ManyToMany
 	@JoinTable(name= "PRODUTO_CATEGORIA",
 		joinColumns= @JoinColumn(name = "produto_id"),
-		inverseJoinColumns= @JoinColumn(name = "categori_id")
+		inverseJoinColumns= @JoinColumn(name = "categoria_id")
 	)
 	
 	private List<Categoria> categorias = new ArrayList<>();
@@ -40,11 +40,11 @@ public class Produto implements Serializable{
 	}
 	
 
-	public Produto(Integer id, String nome, Double preço) {
+	public Produto(Integer id, String nome, Double preco) {
 		super();
 		Id = id;
 		this.nome = nome;
-		this.preço = preço;
+		this.preco = preco;
 	}
 
 
@@ -68,13 +68,13 @@ public class Produto implements Serializable{
 	}
 
 
-	public Double getPreço() {
-		return preço;
+	public Double getPreco() {
+		return preco;
 	}
 
 
-	public void setPreço(Double preço) {
-		this.preço = preço;
+	public void setPreço(Double preco) {
+		this.preco = preco;
 	}
 
 
@@ -85,13 +85,5 @@ public class Produto implements Serializable{
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
-	}
-		
-		
-
-
-		
-		
-		
-		
+	}	
 }
