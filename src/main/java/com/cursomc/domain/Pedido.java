@@ -87,7 +87,15 @@ public class Pedido implements Serializable{
 	public void setEnderecoEntrega(Endereco enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
 	}
+	
+	public Set<ItemPedido> getItems() {
+		return items;
+	}
 
+	public void setItems(Set<ItemPedido> items) {
+		this.items = items;
+	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -112,6 +120,4 @@ public class Pedido implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
 }

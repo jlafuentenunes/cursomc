@@ -51,6 +51,14 @@ public class Produto implements Serializable{
 		this.preco = preco;
 	}
 
+	
+	public List<Pedido> getPedidos(){
+		List<Pedido> lista = new ArrayList<>();
+		for(ItemPedido x : items) {
+			lista.add(x.getPedido());
+		}
+		return lista;
+	}
 
 	public Integer getId() {
 		return Id;
@@ -89,5 +97,43 @@ public class Produto implements Serializable{
 
 	public void setCategorias(List<Categoria> categorias) {
 		this.categorias = categorias;
+	}
+
+	public Set<ItemPedido> getItems() {
+		return items;
+	}
+
+
+	public void setItems(Set<ItemPedido> items) {
+		this.items = items;
 	}	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Id == null) ? 0 : Id.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Produto other = (Produto) obj;
+		if (Id == null) {
+			if (other.Id != null)
+				return false;
+		} else if (!Id.equals(other.Id))
+			return false;
+		return true;
+	}
+	
+	
+	
 }
